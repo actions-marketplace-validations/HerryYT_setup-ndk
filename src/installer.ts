@@ -53,6 +53,7 @@ export async function getNdk(
 
   if (addToPath) {
     core.addPath(installPath)
+    core.exportVariable('ANDROID_NDK_ROOT', installPath)
     core.info('Added to path')
   } else {
     core.info('Not added to path')
