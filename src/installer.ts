@@ -115,5 +115,7 @@ function getDownloadUrl(version: string): string {
   const platform = getPlatormString()
   const arch = getArchString(version)
 
-  return `http://dl.google.com/android/ndk/android-ndk-${version}${platform}${arch}.exe`
+  return `http://dl.google.com/android/ndk/android-ndk-${version}${platform}${arch}.${
+    platform === '-darwin' || platform === '-linux' ? 'tar.bz2' : 'zip'
+  }`
 }
