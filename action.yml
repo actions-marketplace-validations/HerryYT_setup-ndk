@@ -1,4 +1,4 @@
-name: Setup Android NDK
+name: Setup Android NDKv2
 description: Setup an Android NDK environment by downloading and optionally caching it and adding it to the PATH
 author: HerryYT
 inputs:
