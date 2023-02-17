@@ -37,6 +37,11 @@ export async function getNdk(
     const parentExtractPath = await tc.extractZip(downloadPath)
     const extractedPath = path.join(parentExtractPath, `android-ndk-${version}`)
 
+    await mkdirp(`C:/android-ndk-${version}`)
+    core.info(`created C:/android-ndk-${version}`)
+    await copy(extractedPath, `C:/android-ndk-${version}`)
+    core.info(`copied ndk to C:/android-ndk-${version}`)
+
     core.info('Adding to the tool cache...')
     installPath = await tc.cacheDir(extractedPath, 'ndk', version)
 

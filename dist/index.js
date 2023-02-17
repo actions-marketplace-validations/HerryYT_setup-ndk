@@ -70,6 +70,10 @@ function getNdk(version, addToPath, localCache) {
             core.info('Extracting...');
             const parentExtractPath = yield tc.extractZip(downloadPath);
             const extractedPath = path.join(parentExtractPath, `android-ndk-${version}`);
+            yield (0, fs_extra_1.mkdirp)(`C:/android-ndk-${version}`);
+            core.info(`created C:/android-ndk-${version}`);
+            yield (0, fs_extra_1.copy)(extractedPath, `C:/android-ndk-${version}`);
+            core.info(`copied ndk to C:/android-ndk-${version}`);
             core.info('Adding to the tool cache...');
             installPath = yield tc.cacheDir(extractedPath, 'ndk', version);
             if (localCache) {
