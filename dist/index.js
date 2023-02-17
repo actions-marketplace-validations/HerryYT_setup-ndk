@@ -122,7 +122,7 @@ function getPlatormString() {
 function getArchString(version) {
     const numStr = version.slice(1);
     const num = parseInt(numStr, 10);
-    if (num >= 23) {
+    if (num >= 23 || (num <= 9 && getPlatormString() === '-windows')) {
         return '';
     }
     const arch = os.arch();
@@ -140,7 +140,7 @@ function getCacheKey(version) {
 function getDownloadUrl(version) {
     const platform = getPlatormString();
     const arch = getArchString(version);
-    return `https://dl.google.com/android/repository/android-ndk-${version}${platform}${arch}.zip`;
+    return `http://dl.google.com/android/ndk/android-ndk-${version}${platform}${arch}.exe`;
 }
 
 
