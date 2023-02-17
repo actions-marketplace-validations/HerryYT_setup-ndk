@@ -126,6 +126,9 @@ function getArchString(version) {
         return '';
     }
     const arch = os.arch();
+    if (num <= 8 && ['-linux', '-darwin'].includes(getPlatormString())) {
+        return '-x86';
+    }
     switch (arch) {
         case 'x64':
             return '-x86_64';
